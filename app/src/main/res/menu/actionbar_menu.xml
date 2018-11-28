@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_search"
+        android:icon="@mipmap/search"
+        android:title="@string/search"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="always|collapseActionView" />
+
+    <group android:checkableBehavior="all">
+        <item
+            android:id="@+id/action_copypaste"
+            android:title="@string/copypaste" />
+    </group>
+
+    <group android:checkableBehavior="all">
+        <item
+            android:id="@+id/action_night"
+            android:title="@string/dark" />
+    </group>
+
+    <item android:id="@+id/action_project"
+        android:title="@string/info"
+        android:icon="@android:drawable/ic_menu_info_details"
+        app:showAsAction="never" />
+</menu>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Yid-Eng</string>
+    <string name="ignoreline">#</string>
+    <string name="rowsplit">\n</string>
+    <string name="columnsplit">,</string>
+    <string name="searching">searching \'%1$s\'</string>
+    <string name="search">search</string>
+    <string name="info">Data Source</string>
+    <string name="empty">(still) empty</string>
+    <string name="copying">Copied !</string>
+    <string name="copypaste">Copy/Paste Editor</string>
+    <string name="okay">ok</string>
+    <string name="dark">night mode</string>
+</resources>

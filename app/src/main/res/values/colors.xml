@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryDark">#615090</color>
+    <color name="colorPrimary">#1e0063</color>
+    <color name="colorPrimaryHeadline">#432090</color>
+    <color name="colorAccent">#75b900</color>
+
+    <color name="evenCol">#FFFFFF</color>
+    <color name="oddCol">#FFFFE0</color>
+    <color name="text">#000000</color>
+</resources>
