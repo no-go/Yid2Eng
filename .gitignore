@@ -4,3 +4,10 @@
 /local.properties
 /app/build/**/*
 /build
+
+yidkey/*.iml
+yidkey/.gradle/**/*
+yidkey/.idea/**/*
+yidkey/local.properties
+yidkey/app/build/**/*
+yidkey/build

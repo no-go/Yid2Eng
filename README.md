@@ -15,6 +15,15 @@ Features:
 
 You can get a signed APK from here (Android 4.1+): [APK](https://raw.githubusercontent.com/no-go/Yid2Eng/master/app/release/de.digisocken.yid2eng.apk)
 
+## Yiddish Keyboard
+
+I add a project with a my very simple yiddish keyboard in the `yidkey/` folder.
+The keyboard looks like this:
+
+![my YidKey Keyboard](yidkey/app/src/main/res/mipmap-xxxhdpi/layout.jpg)
+
+[Download YidKey Keyboard APK](https://raw.githubusercontent.com/no-go/Yid2Eng/master/yidkey/app/release/click.dummer.yidkey.apk)
+
 ## Screenshots
 
 Nightmode
