@@ -1,10 +1,4 @@
 <resources>
     <string name="app_name">YidKey</string>
-    <string name="explain">For some characters you have to type a key two or three times.
-Other characters needs a combination of the \'yellow\' keys: MELUPM, PASEKH, KOMETS, RAFE, DOT\n
-\n
-The \'red\' keys are a bit special: e.g. for a יִ you have to type the ייִ key, wait a bit
-and then tap this key 2 times again to get the dot. For a ײַ you have to type the ייִ key 3 times and then
-the PASEKH key.
-    </string>
+    <string name="explain">For some letters you have to type a key two or three times.</string>
 </resources>

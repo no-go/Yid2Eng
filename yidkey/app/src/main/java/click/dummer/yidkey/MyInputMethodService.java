@@ -47,6 +47,43 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                     }
 
                     break;
+                case -10:
+                    inputConnection.commitText("שׂ", 1);
+                    break;
+                case -11:
+                    inputConnection.commitText("יִ", 1);
+                    break;
+                case -12:
+                    inputConnection.commitText("אַ", 1);
+                    break;
+                case -13:
+                    inputConnection.commitText("אָ", 1);
+                    break;
+                case -15:
+                    inputConnection.commitText("כּ", 1);
+                    break;
+                case -18:
+                    inputConnection.commitText("תּ", 1);
+                    break;
+                case -14:
+                    inputConnection.commitText("בֿ", 1);
+                    break;
+                case -16:
+                    inputConnection.commitText("פּ", 1);
+                    break;
+                case -17:
+                    inputConnection.commitText("פֿ", 1);
+                    break;
+                case -19:
+                    inputConnection.commitText("וּ", 1);
+                    break;
+                case -20:
+                    inputConnection.commitText("ױ", 1);
+                    break;
+                case -21:
+                    inputConnection.commitText("ײַ", 1);
+                    break;
+
                 case Keyboard.KEYCODE_DONE:
                     inputConnection.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
                     break;
