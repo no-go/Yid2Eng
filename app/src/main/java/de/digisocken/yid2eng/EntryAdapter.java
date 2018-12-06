@@ -13,6 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.regex.Pattern;
 
 public class EntryAdapter extends BaseAdapter {
     public String squery;
@@ -96,6 +97,7 @@ public class EntryAdapter extends BaseAdapter {
     }
 
     public Spanned highlight(String key, String msg) {
+        key = Pattern.quote(key);
         msg = msg.replaceAll(
                 "((?i)"+key+")",
                 "<b><font color='"
@@ -103,6 +105,7 @@ public class EntryAdapter extends BaseAdapter {
                         R.color.colorAccent) +
                         "'>$1</font></b>"
         );
+        msg = msg.replace("\n", "<br />");
         return fromHtml(msg);
     }
 
