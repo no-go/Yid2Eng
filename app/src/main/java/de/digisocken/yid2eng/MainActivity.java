@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Environment;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v4.view.MenuItemCompat;
@@ -16,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -26,12 +28,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     public static final String PROJECT_LINK = "http://www.cs.uky.edu/~raphael/yiddish/dictionary.cgi";
+    public static final String EXPORT_FILENAME = "/wordlist.csv";
 
     private EntryAdapter entryAdapter;
     private EntryAdapter resultEntryAdapter;
@@ -218,7 +224,10 @@ public class MainActivity extends AppCompatActivity {
         });
         handler.postDelayed(updateHintThread, 500);
         resultEntryAdapter = new EntryAdapter(this);
+
+
         new RetrieveFeedTask().execute();
+
     }
 
     @Override
@@ -237,12 +246,49 @@ public class MainActivity extends AppCompatActivity {
 
     class RetrieveFeedTask extends AsyncTask<String, Void, Void> {
         protected Void doInBackground(String... dummy) {
+
             try {
-                InputStream ins = getResources().openRawResource(R.raw.wordlist);
-                String[] str = readTextFile(ins).split(getString(R.string.rowsplit));
+                //--------------------------------------------- build folder and export file
+                File exportedFile;
+
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+                    exportedFile = new File(
+                            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),
+                            getPackageName()
+                    );
+                } else {
+                    exportedFile = new File(Environment.getExternalStorageDirectory() + "/Documents/"+getPackageName());
+                }
+                String path = exportedFile.getPath() + EXPORT_FILENAME;
+
+                exportedFile.mkdirs();
+                exportedFile = new File(path);
+
+                if (!exportedFile.exists()) {
+                    exportedFile.createNewFile();
+
+                    //--------------------------------------------- export RAW to the android files
+                    InputStream ins = getResources().openRawResource(R.raw.wordlist);
+                    Uri datafile = Uri.fromFile(exportedFile);
+                    path = PathUtil.getPath(getApplicationContext(), datafile);
+                    File file = new File(path);
+                    FileOutputStream fos = new FileOutputStream(file);
+                    byte[] buffer = new byte[1024*100];
+                    int len;
+                    while ((len = ins.read(buffer)) != -1) {
+                        fos.write(buffer, 0, len);
+                    }
+                    ins.close();
+                    fos.close();
+                }
+
+                //--------------------------------------------- read exported file and proccess them
+                FileInputStream exportedStream = new FileInputStream(exportedFile);
+                String[] str = readTextFile(exportedStream).split(getString(R.string.rowsplit));
+
                 data_total = str.length;
                 data_line = 0;
-                for (int i=1; i<str.length; i++) {
+                for (int i=0; i<str.length; i++) {
                     DicEntry dicEntry = new DicEntry();
                     if (str[i].trim().length() == 0) continue;
                     if (str[i].startsWith(getString(R.string.ignoreline))) continue;
@@ -258,6 +304,8 @@ public class MainActivity extends AppCompatActivity {
                     entryAdapter.addItem(dicEntry);
                     data_line++;
                 }
+                exportedStream.close();
+
                 entryAdapter.sort();
 
             } catch (Exception e) {

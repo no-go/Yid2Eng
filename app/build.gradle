@@ -8,8 +8,8 @@ android {
         minSdkVersion 16
         targetSdkVersion 22
         // on google is the upload key
-        versionCode 2
-        versionName "0.2"
+        versionCode 3
+        versionName "0.3"
     }
     buildTypes {
         release {

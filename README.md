@@ -11,6 +11,25 @@ Features:
  -  click to copy entry to clipboard OR
  -  ... use a Copy-Paste "editor" window
 
+## Hack the content
+
+The App does a trick: the basic `csv` file is exported to `Documents/de.digisocken.yid2eng/wordlist.csv`
+on your Android device. The file is big, but with a simple layout:
+
+- lines with a \# hashtag will be ignored
+- a line has 5 parts: **PART 1,PART 2,PART 3,PART 4,PART 5**
+- The 5th part additionally uses "quotation marks" in order to be able to separate there also with comma or semicolons.
+
+The App dislays the content as follows:
+
+- part 1: main hit (bold, left side)
+- part 3: hit in yiddish (bold, right side)
+- part 2 and 4: additional content with romanized transliteration and gramatic information
+- part 5: seperat content line with english translation or other details
+
+After a new start of the App, changes to the file are read in.
+If the file is deleted, it will be restored with default values.
+
 ## Get the App
 
 You can get a signed APK from here (Android 4.1+): [APK](https://raw.githubusercontent.com/no-go/Yid2Eng/master/app/release/de.digisocken.yid2eng.apk)
