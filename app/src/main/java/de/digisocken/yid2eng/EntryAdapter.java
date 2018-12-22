@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -36,8 +37,11 @@ public class EntryAdapter extends BaseAdapter {
 
     public void filter(String query, EntryAdapter entryAdapter) {
         clear();
+        if (!Normalizer.isNormalized(query, Normalizer.Form.NFKD)) {
+            query = Normalizer.normalize(query, Normalizer.Form.NFKD);
+        }
         squery = query;
-        query = query.toLowerCase();
+        query = squery.toLowerCase();
         MainActivity.data_total = entryAdapter.getCount();
         MainActivity.data_line = 0;
 
