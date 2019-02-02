@@ -209,7 +209,10 @@ public class MainActivity extends AppCompatActivity {
                 if (copyPasteWindow) {
                     Intent myIntent = new Intent(MainActivity.this, EditActivity.class);
                     //myIntent.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
-                    myIntent.putExtra("msg", msg);
+                    myIntent.putExtra("line", i);
+                    myIntent.putExtra("title", item.title);
+                    myIntent.putExtra("body", item.body);
+                    myIntent.putExtra("yiddish", item.yiddish);
                     startActivity(myIntent);
                 } else {
                     ClipData clip = ClipData.newPlainText(

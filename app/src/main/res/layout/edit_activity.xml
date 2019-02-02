@@ -4,17 +4,80 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/evenCol"
+    android:padding="20dp"
     android:weightSum="1">
 
     <EditText
-        android:id="@+id/editMsg"
+        android:id="@+id/editTitle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="top"
+        android:inputType="text"
+        android:textColor="@color/colorPrimaryHeadline"
+        android:text="title"
+        android:hint="base form"
+        android:fontFamily="monospace" />
+
+    <EditText
+        android:id="@+id/editYiddish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="yiddish"
+        android:inputType="text"
+        android:text="yiddish"
+        android:textColor="@color/colorPrimaryHeadline" />
+    <EditText
+        android:id="@+id/editBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="top"
         android:inputType="textMultiLine"
         android:textColor="@color/text"
-        android:text="dfgdggsgd"
+        android:background="@color/oddCol"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="body"
+        android:hint="details"
         android:fontFamily="monospace" />
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:paddingTop="20dp"
+        android:text="English:" />
+    <EditText
+        android:id="@+id/editEnglish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:textColor="@color/text"
+        android:text=""
+        android:fontFamily="monospace" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:paddingTop="40dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_weight="1"
+            android:text="@string/cancel"
+            android:onClick="cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_weight="1"
+            android:text="@string/save"
+            android:onClick="store"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 </LinearLayout>

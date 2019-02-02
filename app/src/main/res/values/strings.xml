@@ -11,4 +11,6 @@
     <string name="copypaste">Copy/Paste Editor</string>
     <string name="okay">ok</string>
     <string name="dark">night mode</string>
+    <string name="cancel">cancel</string>
+    <string name="save">save</string>
 </resources>
